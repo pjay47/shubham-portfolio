@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='services.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="navbar-container">
+        <a class="nav-logo">Shubham Patel</a>
+
+        <!-- Hamburger Icon -->
+        <div class="hamburger" onclick="toggleMenu()">
+          <i class="fas fa-bars"></i>
+        </div>
+
+        <ul class="nav-links">
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('services') }}">Services</a></li>
+          <li><a href="{{ url_for('about') }}">About</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="services-header">
+        <h1>Our Premium Services</h1>
+        <p>We craft experiences that turn your ideas into reality.</p>
+    </header>
+
+    <!-- Services -->
+    <section class="services-container">
+        <div class="service-card" data-tilt>
+            <i class="fas fa-code"></i>
+            <h3>Web Development (Flask & Python)</h3>
+            <p>Create modern, responsive, and secure websites using Flask and Python tailored to your needs.</p>
+            <a href="{{ url_for('contact') }}" class="btn">Get Started</a>
+        </div>
+
+        <div class="service-card" data-tilt>
+            <i class="fas fa-paint-brush"></i>
+            <h3>Custom Python Applications</h3>
+            <p>From automation scripts to AI-powered applications, we deliver robust Python solutions.</p>
+            <a href="{{ url_for('contact') }}" class="btn">Get Started</a>
+        </div>
+
+        <div class="service-card" data-tilt>
+            <i class="fas fa-bullhorn"></i>
+            <h3>Voice-Based Applications</h3>
+            <p>Next-generation voice authentication and control systems powered by advanced AI algorithms.</p>
+            <a href="{{ url_for('contact') }}" class="btn">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Your Company. All rights reserved.</p>
+    </footer>
+
+    <!-- Scroll Reveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+        ScrollReveal().reveal('.service-card', {
+            delay: 200,
+            distance: '50px',
+            origin: 'bottom',
+            duration: 800,
+            easing: 'ease-in-out',
+            interval: 200
+        });
+    </script>
+
+    <!-- 3D Tilt -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+    <script>
+        VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
+            max: 15,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.3
+        });
+    </script>
+
+    <!-- Toggle Menu Script -->
+    <script>
+      function toggleMenu() {
+        document.querySelector('.nav-links').classList.toggle('active');
+      }
+    </script>
+
+</body>
+</html>
